@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="bootstrap-4.4.1-dist/css/bootstrap.min.css">
+    <title>Piano Types | Premium Piano Types</title>
+
+    <style>
+        :root {
+            --primary-color: #6c5ce7;
+            --secondary-color: #a29bfe;
+            --accent-color: #fd79a8;
+            --dark-color: #2d3436;
+            --light-color: #f5f6fa;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --glass-bg: rgba(255, 255, 255, 0.9);
+            --glass-border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            font-family: 'Poppins', 'Ma Shan Zheng', sans-serif;
+            color: var(--dark-color);
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
+            opacity: 0.1;
+            z-index: -1;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 50px;
+            padding: 10px 30px;
+            box-shadow: var(--shadow);
+            margin: 30px auto;
+            border: var(--glass-border);
+            transition: var(--transition);
+            max-width: 90%;
+        }
+
+        .navbar:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar .nav-item .nav-link {
+            color: var(--dark-color) !important;
+            margin: 0 15px;
+            padding: 10px 20px;
+            font-weight: 500;
+            font-size: 1.1rem;
+            position: relative;
+            border-radius: 30px;
+            transition: var(--transition);
+        }
+
+        .navbar .nav-item .nav-link::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+            transition: var(--transition);
+            border-radius: 3px;
+        }
+
+        .navbar .nav-item .nav-link:hover::before {
+            width: 80%;
+        }
+
+        .navbar .nav-item .nav-link i {
+            margin-right: 8px;
+        }
+
+        /* Piano Types Gallery */
+        .piano-types {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            padding: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .piano-card {
+            width: 400px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: var(--glass-border);
+        }
+
+        .piano-card:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .piano-image {
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .piano-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .piano-card:hover .piano-image img {
+            transform: scale(1.1);
+        }
+
+        .piano-info {
+            padding: 25px;
+            position: relative;
+        }
+
+        .piano-type {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .piano-specs {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .piano-spec {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .piano-spec i {
+            color: var(--accent-color);
+        }
+
+        .piano-desc {
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .price-tag {
+            position: absolute;
+            top: -20px;
+            right: 20px;
+            background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+            color: white;
+            padding: 8px 15px;
+            border-radius: 30px;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(108, 92, 231, 0.3);
+        }
+
+        /* Title Section */
+        .section-title {
+            font-size: 3rem;
+            font-weight: 700;
+            text-align: center;
+            margin: 60px 0;
+            background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+            border-radius: 5px;
+        }
+
+       /* Video Section */
+.video-section {
+    height: 600px;
+    width: 100%;
+    max-width: 1400px;
+    margin: 60px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.video-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.video-card {
+    flex: 1;
+    min-width: 0; /* Allows cards to shrink properly */
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    border: var(--glass-border);
+}
+
+.video-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.video-card video {
+    height: 300px;
+    width: 100%;
+    display: block;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.video-info {
+    padding: 15px;
+}
+
+.video-title {
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: var(--dark-color);
+}
+
+.video-desc {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* Responsive adjustments */
+
+
+        /* Particles Background */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: float linear infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .piano-card {
+                width: 350px;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+            }
+            
+            .video-grid {
+                grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 10px;
+            }
+            
+            .navbar .nav-item .nav-link {
+                margin: 0 5px;
+                padding: 8px 12px;
+                font-size: 0.9rem;
+            }
+            
+            .piano-types {
+                gap: 30px;
+                padding: 30px;
+            }
+            
+            .piano-card {
+                width: 100%;
+                max-width: 400px;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+                margin: 40px 0;
+            }
+            
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .piano-type {
+                font-size: 1.5rem;
+            }
+            
+            .price-tag {
+                font-size: 0.8rem;
+                padding: 5px 10px;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+    <!-- Animated background particles -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark custom-navbar justify-content-center">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="./piano playing.html"><i class="fas fa-piano-keyboard"></i> Piano Playing</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="./Piano knowledge.html"><i class="fas fa-info-circle"></i> Piano Knowledge</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="./Piano type.html"><i class="fas fa-music"></i> Piano Types</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Piano Types Gallery -->
+    <div class="piano-types">
+        <div class="piano-card">
+            <div class="piano-image">
+                <img src="./img/g1.jpg" alt="Upright Piano">
+            </div>
+            <div class="piano-info">
+                <div class="price-tag">¥8,000 - ¥150,000</div>
+                <h3 class="piano-type">Upright Piano</h3>
+                <div class="piano-specs">
+                    <span class="piano-spec"><i class="fas fa-keyboard"></i> 88 Keys</span>
+                    <span class="piano-spec"><i class="fas fa-home"></i> Home Use</span>
+                    <span class="piano-spec"><i class="fas fa-ruler-combined"></i> Compact Size</span>
+                </div>
+                <p class="piano-desc">
+                    The upright piano is the most common type in modern households and teaching environments. With its vertical string design, it takes up less space and is suitable for families and schools. Although its tone is slightly less rich than a grand piano, it is more affordable, making it an ideal choice for beginners and practice.
+                </p>
+            </div>
+        </div>
+        
+        <div class="piano-card">
+            <div class="piano-image">
+                <img src="./img/g2.jpg" alt="Grand Piano">
+            </div>
+            <div class="piano-info">
+                <div class="price-tag">¥50,000 - ¥2,000,000+</div>
+                <h3 class="piano-type">Grand Piano</h3>
+                <div class="piano-specs">
+                    <span class="piano-spec"><i class="fas fa-keyboard"></i> 88 Keys</span>
+                    <span class="piano-spec"><i class="fas fa-microphone-alt"></i> Professional</span>
+                    <span class="piano-spec"><i class="fas fa-ruler-combined"></i> Large Size</span>
+                </div>
+                <p class="piano-desc">
+                    The grand piano is the pinnacle of piano design, with horizontal strings, longer length, and a larger soundboard, producing richer and fuller tones. It is mainly used in concert halls, performances, and recording studios, making it the first choice for professional pianists.
+                </p>
+            </div>
+        </div>
+        
+        <div class="piano-card">
+            <div class="piano-image">
+                <img src="./img/g3.jpg" alt="Digital Piano">
+            </div>
+            <div class="piano-info">
+                <div class="price-tag">¥1,000 - ¥50,000</div>
+                <h3 class="piano-type">Digital Piano</h3>
+                <div class="piano-specs">
+                    <span class="piano-spec"><i class="fas fa-keyboard"></i> 88 Keys</span>
+                    <span class="piano-spec"><i class="fas fa-plug"></i> Electronic Sound</span>
+                    <span class="piano-spec"><i class="fas fa-volume-up"></i> Adjustable Volume</span>
+                </div>
+                <p class="piano-desc">
+                    Digital pianos use electronic technology to simulate the sound and feel of traditional pianos. With adjustable volume and headphone output, they are perfect for night practice. Modern high-end models closely replicate the acoustic feel, while being low-maintenance and portable, making them ideal for city living.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Video Section -->
+    <div class="video-section">
+        <h2 class="section-title">Let’s Enjoy Performances of Three Piano Types 🎹</h2>
+        <div class="video-container">
+            <div class="video-card">
+                <video controls>
+                    <source src="./video/t1.mp4" type="video/mp4">
+                </video>
+                <div class="video-info">
+                    <div class="video-title">Upright Piano Performance</div>
+                    <div class="video-desc">Warm tones of a home upright piano</div>
+                </div>
+            </div>
+            <div class="video-card">
+                <video controls>
+                    <source src="./video/t2.mp4" type="video/mp4">
+                </video>
+                <div class="video-info">
+                    <div class="video-title">Grand Piano Performance</div>
+                    <div class="video-desc">Powerful sound of a professional grand piano</div>
+                </div>
+            </div>
+            <div class="video-card">
+                <video controls>
+                    <source src="./video/t3.mp4" type="video/mp4">
+                </video>
+                <div class="video-info">
+                    <div class="video-title">Digital Piano Performance</div>
+                    <div class="video-desc">Versatility of a modern digital piano</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Create animated background particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 30;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                const size = Math.random() * 15 + 5;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                particle.style.left = `${Math.random() * 100}vw`;
+                particle.style.top = `${Math.random() * 100}vh`;
+                
+                const duration = Math.random() * 20 + 10;
+                particle.style.animationDuration = `${duration}s`;
+                
+                particle.style.animationDelay = `${Math.random() * 5}s`;
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+        
+        window.addEventListener('DOMContentLoaded', () => {
+            createParticles();
+            
+            const pianoCards = document.querySelectorAll('.piano-card');
+            pianoCards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    const image = card.querySelector('.piano-image img');
+                    image.style.transform = 'scale(1.1)';
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    const image = card.querySelector('.piano-image img');
+                    image.style.transform = 'scale(1)';
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
