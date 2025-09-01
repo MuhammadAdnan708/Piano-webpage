@@ -1,0 +1,73 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "幼圆";
+    background: url("../img/钢琴.jpg") no-repeat center center / cover;
+    background-attachment: fixed;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* 导航栏 */
+.navbar .nav-item .nav-link {
+    color: black !important;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+/* 鼠标移动到链接的颜色 */
+.navbar a:hover {
+    background-image: linear-gradient(to right, #fddb92 0%, #d1fdff 100%);
+}
+
+/* 大容器 */
+.container {
+    width: 1000px;
+    border: 1px solid #7e7d7d;
+    margin: 0 auto;
+}
+
+/* 容器的所有按钮 */
+.container .key_all {
+    margin: 0 auto;
+    padding: 0;
+    height: 420px;
+    position: relative;
+    background: #ccc;
+}
+
+/* 所有按键 */
+.key_all .key {
+    float: left;
+    text-align: center;
+    font-size: 16px;
+    background-position: bottom left;
+    background-repeat: repeat-x;
+}
+
+/* 白色按键 */
+.key_all .whiteKey {
+    width: 74.5px;
+    height: 360px;
+    color: #666666;
+    background-color: #eeeeee;
+    background-image: url("../img/key_back_white.png");
+    border: 1px solid #999;
+}
+
+/* 黑色按键 */
+.key_all .blackKey {
+    width: 42px;
+    height: 200px;
+    border: 1px solid #666;
+    background: #666 url("../img/key_back_black.png");
+    position: absolute;
+    top: 0;
+}
+
+/* 操作说明区 */
+.instructions {
+    font-size: 12px;
+    line-height: 18px;
+    padding-left: 20px;
+
+}
